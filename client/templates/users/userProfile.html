@@ -2,7 +2,30 @@
   <div>
     Username: {{ user.username }}
   </div>
+
+  {{#if user.customTitle}}
+    <div>
+      CustomeTitle: {{user.customTitle}}
+    </div>
+  {{/if}}
+
+
+  {{#if hasClasses}}
+    <div>
+      Classes:
+      <ul>
+        {{#each classes}}
+          <li>{{className}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  {{/if}}
+
   <div>
     <a href="{{user._id}}/edit">Edit user</a>
+  </div>
+
+  <div>
+    <a href="{{user._id}}/settings">Settings</a>
   </div>
 </template>
