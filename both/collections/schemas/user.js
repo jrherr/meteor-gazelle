@@ -47,6 +47,61 @@ Schemas.userProfile = new SimpleSchema({
   }
 });
 
+Schemas.communitySettings = new SimpleSchema({
+  postPerPage: {
+    type: String,
+    allowedValues: [
+      '25',
+      '50',
+      '100'
+    ],
+    optional: false,
+    label: 'Posts per page (forums)'
+  },
+
+  inboxSorting: {
+    type: Boolean,
+    label: 'List unread private messages first'
+  },
+
+  disableEmoticons: {
+    type: Boolean,
+    label: 'Disable emoticons'
+  },
+
+  disableMatureContent: {
+    type: Boolean,
+    label: 'Disable mature content (forums, comments, profiles)'
+  },
+
+  avatarDisplay: {
+    type: String,
+    allowedValues: [
+      'Show avatars',
+      'Disable avatars'
+    ],
+    optional: false,
+    label: 'Avatar display'
+  },
+
+  autosaveReplyText: {
+    type: Boolean,
+    label: 'Reply text auto-saving',
+    defaultValue: true
+  },
+
+  rippyMessages: {
+    type: String,
+    allowedValues: [
+      'Personalised rippies only',
+      'On',
+      'Off'
+    ],
+    optional: false,
+    label: 'Rippy messages'
+  }
+});
+
 Schemas.torrentSettings = new SimpleSchema({
   defaultSearchType: {
     type: String,
@@ -186,6 +241,10 @@ Schemas.user = new SimpleSchema({
   torrentSettings: {
     type: Schemas.torrentSettings,
     label: 'Torrent settings'
+  },
+  communitySettings: {
+    type: Schemas.communitySettings,
+    label: 'Community settings'
   }
 });
 
