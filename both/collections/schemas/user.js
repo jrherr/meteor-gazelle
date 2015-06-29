@@ -47,6 +47,102 @@ Schemas.userProfile = new SimpleSchema({
   }
 });
 
+Schemas.torrentSettings = new SimpleSchema({
+  defaultSearchType: {
+    type: String,
+    label: 'Default search type',
+    allowedValues: ['simple', 'advanced'],
+    defaultValue: 'simple'
+  },
+
+  torrentGrouping: {
+    type: Boolean,
+    label: 'Enable torrent grouping',
+    defaultValue: true
+  },
+
+  torrentGroupingDisplay: {
+    type: String,
+    label: 'Torrent group display',
+    allowedValues: ['open', 'closed'],
+    defaultValue: 'open'
+  },
+
+  snatchedTorrentIndicator: {
+    type: Boolean,
+    label: 'Snatched torrents indicator',
+    defaultValue: false
+  },
+
+  coverArtTorrent: {
+    type: Object,
+    label: 'Cover art (torrents)',
+    optional: true
+  },
+
+  "coverArtTorrent.enable": {
+    type: Boolean,
+    label: 'Enable cover artwork'
+  },
+
+  "coverArtTorrent.additional": {
+    type: Boolean,
+    label: 'Enable additional cover artwork'
+  },
+
+  coverArtCollage: {
+    type: String,
+    allowedValues: [
+      '10',
+      '25',
+      '50',
+      '100',
+      'All',
+      'None'
+    ],
+    optional: false,
+    label: 'Cover art (collages)'
+  },
+
+  searchFilterTorrent: {
+    type: Object,
+    label: 'Torrent search filters',
+    optional: true
+  },
+
+  'searchFilterTorrent.displayControls': {
+    type: Boolean,
+    label: 'Display filter controls'
+  },
+
+  'searchFilterTorrent.officialTag': {
+    type: Boolean,
+    label: 'Display official tag filters'
+  },
+
+  autocompletion: {
+    type: String,
+    allowedValues: [
+      'Everywhere',
+      'Search only',
+      'Disabled'
+    ],
+    optional: false,
+    label: "Autocompletion"
+  },
+
+  votingLinks: {
+    type: Boolean,
+    label: 'Disable voting links'
+  },
+
+  textFileDownload: {
+    type: Boolean,
+    label: 'Enable downloading torrent files as text files'
+  }
+});
+
+
 Schemas.user = new SimpleSchema({
   username: {
     type: String,
@@ -86,6 +182,10 @@ Schemas.user = new SimpleSchema({
     type: [Object],
     label: 'The user\'s classes',
     optional: true
+  },
+  torrentSettings: {
+    type: Schemas.torrentSettings,
+    label: 'Torrent settings'
   }
 });
 

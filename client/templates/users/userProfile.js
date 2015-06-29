@@ -1,10 +1,10 @@
 Template.userProfile.helpers({
   hasClasses: function() {
-    return this.user() && this.user().classes;
+    return this.user && this.user.classes;
   },
 
   classes: function() {
-    return Object.keys(this.user().classes)
+    return Object.keys(this.user.classes)
       .map(function(className) {
         return {className: className}
       });
