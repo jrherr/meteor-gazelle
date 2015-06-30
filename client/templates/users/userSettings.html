@@ -1,3 +1,6 @@
 <template name="userSettings">
-  {{> quickForm collection='User' doc=user fields='torrentSettings, communitySettings' id='userSettingsForm' type='update'}}
+  {{> quickForm collection='User'
+      id='userSettingsForm' type='update'
+      doc=user
+      fields='torrentSettings, communitySettings, notificationSettings, personalSettings, paranoiaSettings' }}
 </template>
