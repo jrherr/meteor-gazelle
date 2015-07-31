@@ -20,6 +20,12 @@ Branch Naming
 * For documentation: `doc/<document_name>`
 * For bug fixes: `bugfix/<issue_id>`
 
+Branch Naming
+-------------
+* For features: feature/<feature_name>
+* For documentation: doc/<document_name>
+* For bug fixes: bugfix/<issue_id>
+
 Submitting a pull request
 -------------------------
 * [Fork](https://github.com/meteor-gazelle/meteor-gazelle/fork) the repository, and switch to a new branch using `git checkout -b <branch_name>`.
